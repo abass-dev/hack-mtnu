@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+background-color: chocolate;
+min-height: 100vh;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form input{
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 19px;
+}
+.form button {
+  color: white;
+  margin-top: 15px;
+  width: 250px;
+  font-size: 26px;
+  background-color: lightskyblue;
+  border: none;
+  padding: 5px;
+  border-radius: 6px;
+  box-shadow: 0 0 3px black;
+}
