@@ -1,14 +1,21 @@
-import Axios from 'axios'
-import { useEffect } from 'react'
-
+import Axios from "axios";
+import React, { useEffect, useState } from "react";
+import HackTemp from "./HackTemp";
 
 const Hacked = () => {
-    useEffect(() => {
-        Axios.get('http://localhost:3001/hacked').then((response) => {
-            console.log(response.data)
-        })
-    })
-    return <h1>Hacked</h1>
-}
+  const [datas, setDatas] = useState([]);
 
-export default Hacked
+  useEffect(() => {
+    Axios.post("http://localhost:3001/hacked")
+      .then((response) => {
+         setDatas(response.data);
+      })
+      .catch((err) => {
+        console.log(err)
+         setDatas({message: 'ERROR, Cant connect to the DB'});
+      });
+  }, []);
+  return <HackTemp value={datas} />;
+};
+
+export default Hacked;

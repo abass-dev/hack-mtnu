@@ -1,15 +1,14 @@
-import Cookies from "universal-cookie";
 import { useEffect } from "react";
 import Axios from 'axios'
+import Cookies from 'universal-cookie'
 
-
-const cookies = new Cookies();
-cookies.set('myadmin', 'imadmin', {path: '/admin'})
 const Admin = () => {
   useEffect(() => {
-    Axios.get("http://localhost:3001/admin", {admin: cookies.get("myadmin")})
+    Axios.get("http://localhost:3001/admin")
       .then((response) => {
-        console.log(response.data);
+        if(response.data.user !== 'success') {
+          window.location.href = '/login'
+        }
       })
       .catch((err) => {
         console.log(err);

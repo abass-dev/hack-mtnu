@@ -16,7 +16,7 @@ min-height: 100vh;
   border-radius: 5px;
   font-size: 19px;
   border: none;
-  box-shadow: 0 0 7px;
+  box-shadow: 0 0 5px;
 }
 .form button {
   color: white;

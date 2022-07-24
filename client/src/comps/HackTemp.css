@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.users h1 {
+    text-align: center;
+}
+
+.users {
+    width: 100%;
+    max-width: 700px;
+    margin: 15px;
+}
+.user {
+    background-color: rgb(231, 231, 231);
+    border-bottom: solid 1px #333;
+}
+.user p {
+    padding-left: 10px;
+}
+.user span {
+    color: blue;
+}
+.users .redtitle {
+    color: red
+}

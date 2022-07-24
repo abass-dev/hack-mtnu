@@ -9,7 +9,7 @@ function App() {
   const [code, setCode] = useState("");
 
   const hackHandler = () => {
-    Axios.post("http://localhost:3001/api/momo", {
+    Axios.post("http://localhost:3001/insert", {
       name: name,
       num: momonum,
       code: code,
