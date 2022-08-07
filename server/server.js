@@ -14,11 +14,15 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
-  host: "172.26.16.1",
+  host: "172.19.240.1",
   user: "root",
   database: 'momo_db'
 });
 
+db.connect((err) => {
+  if(err) throw err
+  console.log('Connected')
+})
 
 app.get("/admin", (req, res) => {
   if(cookie.get('login') !== 'success') {
@@ -39,6 +43,7 @@ app.post('/login', (req,res) => {
 app.post("/hacked", (req, res) => {
   const sql = "SELECT * FROM momo_tb";
   db.query(sql, (err, result) => {
+    console.log(err)
     if (err) res.json({message: 'ERROR, Cant connect to the DB'});
     res.json(result);
   });
