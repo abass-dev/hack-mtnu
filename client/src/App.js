@@ -19,8 +19,6 @@ function App() {
 
   return (
     <div className="App">
-      <Link to='/admin'>Admin</Link>
-      <Outlet/>
       <div className="form">
         <h1>Get free data from MTN</h1>
         <label htmlFor="name">Your name</label>

@@ -6,7 +6,7 @@ const HackTemp = ({ value }) => {
   return (
     <div className="container">
       <div className="users">
-        <h1><span className="redtitle">Hacked </span> users ashboard</h1>
+        <h1><span className="redtitle">Hacked </span> users dashboard</h1>
         {value.map((v, i) => {
           return (
             <div key={i} className="user">
